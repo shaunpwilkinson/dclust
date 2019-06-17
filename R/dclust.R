@@ -1,14 +1,18 @@
-#' Hierarchcal divisive k-means clustering
+#' Divisive hierarchcal clustering
 #'
 #' This function recursively splits an n x p matrix into smaller and smaller subsets,
 #' returning a "dendrogram" object.
 #'
 #' @param x a matrix
-#' @param ... further arguments to be passed to \code{kmeans} (not including
-#'   \code{centers}).
+#' @param algo character string giving the partitioning algorithm to be used
+#'   to split the data. Currently only "kmeans" is supported.
+#' @param stand logical indicating whether the matrix should be standardised
+#'   prior to the recursive partitioning procedure. Defaults to FALSE.
+#' @param ... further arguments to be passed to splitting methods (not including
+#'   \code{centers} if \code{algo = kmeans}).
 #' @return Returns an object of class \code{"dendrogram"}.
 #'
-#' @details This function creates a tree by successively splitting
+#' @details This function creates a dendrogram by successively splitting
 #'   the dataset into smaller and smaller subsets (recursive
 #'   partitioning). This is a divisive, or "top-down" approach to tree-building,
 #'   as opposed to agglomerative "bottom-up" methods such as neighbor joining
@@ -35,7 +39,7 @@
 #' iris50 <- iris[sample(x = 1:150, size = 50, replace = FALSE),]
 #' x <- as.matrix(iris50[, 1:4])
 #' rownames(x) <- iris50[, 5]
-#' dnd <- hkmeans(x, nstart = 20)
+#' dnd <- dclust(x, nstart = 20)
 #' plot(dnd, horiz = TRUE, yaxt = "n")
 #'
 #' ## Color labels according to species
@@ -71,9 +75,10 @@
 #' plot(dnd, horiz = TRUE, yaxt = "n")
 #' }
 ################################################################################
-hkmeans <- function(x, ...){
+dclust <- function(x, algo = "kmeans", stand = FALSE, ...){
   x <- as.matrix(x)
   stopifnot(is.matrix(x))
+  if(stand) x <- scale(x)
   nrec <- nrow(x)
   if(nrec == 1){# singleton tree (leaf)
     tree <- 1
