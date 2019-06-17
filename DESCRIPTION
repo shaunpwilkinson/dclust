@@ -2,7 +2,12 @@ Package: dclust
 Type: Package
 Title: Divisive Hierarchical Clustering Analysis
 Version: 0.0.0.9000
-Author: Shaun Wilkinson [aut, cre]
+Authors@R: c(person("Shaun", "Wilkinson", role = c("aut", "cre"),
+                     email = "shaunpwilkinson@gmail.com", 
+                     comment = c(ORCID = '0000-0002-7332-7931')),
+             person("Paolo", "Giordani", role = "aut",
+                     email = "paolo.giordani@uniroma1.it")
+                     )
 Maintainer: Shaun Wilkinson <shaunpwilkinson@gmail.com>
 Description: Contains a single function 'dclust' for divisive hierarchical clustering based on 
     recursive k-means partitioning (k = 2). Useful for clustering large datasets
