@@ -1,0 +1,7 @@
+exportPattern("^[[:alpha:]]+")
+
+importFrom(stats, dendrapply)
+importFrom(stats, is.leaf)
+importFrom(stats, kmeans)
+importFrom(phylogram, remidpoint)
+importFrom(phylogram, reposition)
