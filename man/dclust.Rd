@@ -2,7 +2,7 @@
 % Please edit documentation in R/dclust.R
 \name{dclust}
 \alias{dclust}
-\title{Divisive/bisecting hierarchcal clustering}
+\title{Divisive/bisecting heirarchcal clustering}
 \usage{
 dclust(x, method = "kmeans", stand = FALSE, ...)
 }

@@ -1,6 +1,6 @@
 Package: dclust
 Type: Package
-Title: Divisive Hierarchical Clustering Analysis
+Title: Divisive Hierarchical Clustering
 Version: 0.1.0
 Authors@R: c(person("Shaun", "Wilkinson", role = c("aut", "cre"),
                      email = "shaunpwilkinson@gmail.com", 
