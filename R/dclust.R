@@ -1,15 +1,16 @@
-#' Divisive hierarchcal clustering
+#' Divisive/bisecting heirarchcal clustering
 #'
 #' This function recursively splits an n x p matrix into smaller and smaller subsets,
 #' returning a "dendrogram" object.
 #'
 #' @param x a matrix
-#' @param algo character string giving the partitioning algorithm to be used
-#'   to split the data. Currently only "kmeans" is supported.
+#' @param method character string giving the partitioning algorithm to be used
+#'   to split the data. Currently only "kmeans" is supported (divisive/bisecting k-means;
+#'   see Steinbach et al. 2000).
 #' @param stand logical indicating whether the matrix should be standardised
 #'   prior to the recursive partitioning procedure. Defaults to FALSE.
 #' @param ... further arguments to be passed to splitting methods (not including
-#'   \code{centers} if \code{algo = kmeans}).
+#'   \code{centers} if \code{method = kmeans}).
 #' @return Returns an object of class \code{"dendrogram"}.
 #'
 #' @details This function creates a dendrogram by successively splitting
@@ -28,7 +29,9 @@
 #'
 #' @author Shaun Wilkinson
 #'
-#' @references TBA
+#' @references
+#'   Steinbach M, Karypis G, Kumar V (2000). A Comparison of Document Clustering Techniques.
+#'   Proceedings of World Text Mining Conference, KDD2000, Boston.
 #'
 #'
 #' @examples
@@ -75,7 +78,7 @@
 #' plot(dnd, horiz = TRUE, yaxt = "n")
 #' }
 ################################################################################
-dclust <- function(x, algo = "kmeans", stand = FALSE, ...){
+dclust <- function(x, method = "kmeans", stand = FALSE, ...){
   x <- as.matrix(x)
   stopifnot(is.matrix(x))
   if(stand) x <- scale(x)

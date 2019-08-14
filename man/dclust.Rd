@@ -2,21 +2,22 @@
 % Please edit documentation in R/dclust.R
 \name{dclust}
 \alias{dclust}
-\title{Divisive hierarchcal clustering}
+\title{Divisive/bisecting hierarchcal clustering}
 \usage{
-dclust(x, algo = "kmeans", stand = FALSE, ...)
+dclust(x, method = "kmeans", stand = FALSE, ...)
 }
 \arguments{
 \item{x}{a matrix}
 
-\item{algo}{character string giving the partitioning algorithm to be used
-to split the data. Currently only "kmeans" is supported.}
+\item{method}{character string giving the partitioning algorithm to be used
+to split the data. Currently only "kmeans" is supported (divisive/bisecting k-means;
+see Steinbach et al. 2000).}
 
 \item{stand}{logical indicating whether the matrix should be standardised
 prior to the recursive partitioning procedure. Defaults to FALSE.}
 
 \item{...}{further arguments to be passed to splitting methods (not including
-\code{centers} if \code{algo = kmeans}).}
+\code{centers} if \code{method = kmeans}).}
 }
 \value{
 Returns an object of class \code{"dendrogram"}.
@@ -84,7 +85,8 @@ plot(dnd, horiz = TRUE, yaxt = "n")
 }
 }
 \references{
-TBA
+Steinbach M, Karypis G, Kumar V (2000). A Comparison of Document Clustering Techniques.
+  Proceedings of World Text Mining Conference, KDD2000, Boston.
 }
 \author{
 Shaun Wilkinson

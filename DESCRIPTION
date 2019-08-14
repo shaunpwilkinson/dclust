@@ -1,7 +1,7 @@
 Package: dclust
 Type: Package
 Title: Divisive Hierarchical Clustering Analysis
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(person("Shaun", "Wilkinson", role = c("aut", "cre"),
                      email = "shaunpwilkinson@gmail.com", 
                      comment = c(ORCID = '0000-0002-7332-7931')),
@@ -12,6 +12,7 @@ Maintainer: Shaun Wilkinson <shaunpwilkinson@gmail.com>
 Description: Contains a single function 'dclust' for divisive hierarchical clustering based on 
     recursive k-means partitioning (k = 2). Useful for clustering large datasets
     where computation of a n x n distance matrix is not feasible (e.g. n > 10,000 records).
+    For further information see Steinbach M, Karypis G, Kumar V (2000) A Comparison of Document Clustering Techniques. Proceedings of World Text Mining Conference, KDD2000, Boston.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
