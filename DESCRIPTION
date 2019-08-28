@@ -21,10 +21,4 @@ BugReports: http://github.com/shaunpwilkinson/dclust/issues
 Imports: 
     openssl,
     phylogram
-Suggests:
-    dendextend,
-    knitr,
-    rmarkdown,
-    testthat
-VignetteBuilder: knitr
 RoxygenNote: 6.1.1
